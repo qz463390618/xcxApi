@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/product/classList','Api\IndexController@getCateDetailName');
+Route::get('/product/list/{page_index?}/{data_num?}/{product_cate?}','Api\ProductController@getList')->where(['page_index' => '[0-9]+','data_num'=>'[0-9]+','product_cate'=>'[0-9]+']);
